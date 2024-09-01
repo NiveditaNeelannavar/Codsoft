@@ -1,0 +1,55 @@
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error: Division by zero is not possible"
+    return x / y
+
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Enter a numeric value.")
+
+def display_operations():
+    print("Select an operation:")
+    print("a. Add")
+    print("b. Subtract")
+    print("c. Multiply")
+    print("d. Divide")
+
+def main():
+    display_operations()
+
+    while True:
+        choice = input("Enter choice (a/b/c/d) or 'e' to exit: ").strip()
+
+        if choice.lower() == 'e':
+            print("Exit from calculator. Thankyou!")
+            break
+
+        if choice in ('a', 'b', 'c', 'd'):
+            num1 = get_number("Enter the first number: ")
+            num2 = get_number("Enter the second number: ")
+
+            if choice == 'a':
+                print(f"The result is: {add(num1, num2)}")
+            elif choice == 'b':
+                print(f"The result is: {subtract(num1, num2)}")
+            elif choice == 'c':
+                print(f"The result is: {multiply(num1, num2)}")
+            elif choice == 'd':
+                print(f"The result is: {divide(num1, num2)}")
+        else:
+            print("Invalid choice. Please select a valid operation.")
+
+if __name__ == "__main__":
+    main()
